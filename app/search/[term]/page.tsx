@@ -1,9 +1,19 @@
-import React from "react";
+import { notFound } from "next/navigation"
 
-function SearchPage () {
+type Props ={
+    params: {
+        term:string
+    }
+}
+
+function SearchPage ({params:{term}}:Props) {
+
+    if (!term) notFound();
+
+const termToUse =decodeURI(term);
     return (
-        <div>SearchPage</div>
+        <div>welcome to kistokio: {term}</div>
     )
 }
 
-export default SearchPage
+export default SearchPage;
